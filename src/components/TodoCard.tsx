@@ -24,7 +24,7 @@ function TodoCard({ todo, onUpdateTodo, onDeleteTodo }: Props): JSX.Element {
   }
 
   return (
-    <Card key={todo.id} sx={{ mb: 2 }}>
+    <Card sx={{ mb: 2 }}>
       <CardContent>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Box sx={{ display: 'flex' }}>

@@ -1,5 +1,6 @@
 import {
   Box,
+  Typography,
 } from "@mui/material";
 import { JSX } from "react";
 import { Todo } from "../types/Todo";
@@ -14,7 +15,18 @@ type Props = {
 function TodoList({ todos, onUpdateTodo, onDeleteTodo }: Props): JSX.Element {
   return (
     <Box sx={{ mt: 2 }}>
-      {todos.map(todo => <TodoCard key={todo.id} todo={todo} onUpdateTodo={onUpdateTodo} onDeleteTodo={onDeleteTodo} />)}
+      {todos.length === 0 ? (
+        <Typography variant="h4">No todos added!</Typography>
+      ) : (
+        <>
+          {todos.map(todo => <TodoCard
+            key={todo.id}
+            todo={todo}
+            onUpdateTodo={onUpdateTodo}
+            onDeleteTodo={onDeleteTodo}
+          />)}
+        </>
+      )}
     </Box>
   );
 }

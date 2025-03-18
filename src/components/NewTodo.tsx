@@ -1,12 +1,15 @@
 import { Box, Button, TextField } from "@mui/material";
 import { JSX, useState } from "react";
 import { Todo } from "../types/Todo";
+import { useNavigate } from "react-router";
 
 type Props = {
   onCreateTodo: (newTodo: Todo) => void;
 };
 
 function NewTodo({ onCreateTodo }: Props): JSX.Element {
+  const navigate = useNavigate();
+
   const [todoName, setTodoName] = useState('');
   const [todoDescription, setTodoDescription] = useState('');
 
@@ -19,8 +22,7 @@ function NewTodo({ onCreateTodo }: Props): JSX.Element {
       isComplete: false,
     };
     onCreateTodo(newTodo);
-    setTodoName('');
-    setTodoDescription('');
+    navigate('/');
   }
 
   return (
